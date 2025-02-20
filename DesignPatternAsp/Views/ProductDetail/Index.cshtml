@@ -1,0 +1,18 @@
+﻿
+@{
+    decimal totalLocal = (decimal)ViewBag.totalLocal;
+    decimal totalForeign = (decimal)ViewBag.totalForeign;
+}
+
+<div>
+    <h2>Product Detail</h2>
+    <div>
+        <h3>Total Local</h3>
+        <h3> @totalLocal</h3>
+        <h3>Total Extrangero</h3>
+        <h3> @totalForeign</h3>
+    </div>
+    <div>
+        <a href="@Url.Action("Index", "Product")">Back to Product List</a>
+    </div>
+</div>
