@@ -13,64 +13,68 @@
 
 using DesignPattern.Models;
 using DesignPattern.RepositoryPattern;
+using DesignPattern.StrategyPattern;
 
-using (var context = new DesignPatternContext())
-{
-    
-    //var beerRepository = new BeerRepository(context);
-    //var beer = new Beer
-    //{
-    //    Name = "Heineken"
-    //};
+var context = new Context(new CarStrategy());
+context.Run();
 
-    //beerRepository.Add(beer);
-    //beerRepository.Save();
+//using (var context = new DesignPatternContext())
+//{
 
-    //var list = beerRepository.Get();
+//var beerRepository = new BeerRepository(context);
+//var beer = new Beer
+//{
+//    Name = "Heineken"
+//};
 
-    //foreach (var item in list)
-    //{
-    //    Console.WriteLine(item.Name);
-    //}
+//beerRepository.Add(beer);
+//beerRepository.Save();
 
-    //var beerRepository = new Repository<Beer>(context);
-    //var beer = new Beer
-    //{
-    //    Name = "Corona"
-    //};
-    //beerRepository.Add(beer);
+//var list = beerRepository.Get();
 
-    //beerRepository.Save();
+//foreach (var item in list)
+//{
+//    Console.WriteLine(item.Name);
+//}
 
-    //var list = beerRepository.Get();
+//var beerRepository = new Repository<Beer>(context);
+//var beer = new Beer
+//{
+//    Name = "Corona"
+//};
+//beerRepository.Add(beer);
 
-    //foreach (var item in list)
-    //{
-    //    Console.WriteLine(item.Name);
-    //}
+//beerRepository.Save();
 
-    var unitOfWork = new DesignPattern.UnitOfWorkPattern.UnitOfWork(context);
+//var list = beerRepository.Get();
 
-    var beers = unitOfWork.Beers.Get();
-    var beer = new Beer
-    {
-        Name = "Budweiser"
-    };
+//foreach (var item in list)
+//{
+//    Console.WriteLine(item.Name);
+//}
 
-    unitOfWork.Beers.Add(beer);
+//var unitOfWork = new DesignPattern.UnitOfWorkPattern.UnitOfWork(context);
 
-    var brand = new Brand
-    {
-        Name = "Budweiser"
-    };
+//var beers = unitOfWork.Beers.Get();
+//var beer = new Beer
+//{
+//    Name = "Budweiser"
+//};
 
-    unitOfWork.Brands.Add(brand);
+//unitOfWork.Beers.Add(beer);
 
-    unitOfWork.Save();
+//var brand = new Brand
+//{
+//    Name = "Budweiser"
+//};
 
-    foreach (var item in beers)
-    {
-        Console.WriteLine(item.Name);
-    }
+//unitOfWork.Brands.Add(brand);
 
-}
+//unitOfWork.Save();
+
+//foreach (var item in beers)
+//{
+//    Console.WriteLine(item.Name);
+//}
+
+//}
