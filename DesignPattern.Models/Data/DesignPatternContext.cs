@@ -21,10 +21,7 @@ public partial class DesignPatternContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (!optionsBuilder.IsConfigured)
-        {
-
-        }
+       
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,12 +31,17 @@ public partial class DesignPatternContext : DbContext
             entity.ToTable("Beer");
 
             entity.Property(e => e.Name).HasMaxLength(50);
+
+            entity.HasOne(d => d.Brand).WithMany(p => p.Beers)
+                .HasForeignKey(d => d.BrandId)
+                .HasConstraintName("FK_Beer_Brand");
         });
 
         modelBuilder.Entity<Brand>(entity =>
         {
             entity.ToTable("Brand");
 
+            entity.Property(e => e.BrandId).HasDefaultValueSql("(newid())");
             entity.Property(e => e.Name).HasMaxLength(50);
         });
 

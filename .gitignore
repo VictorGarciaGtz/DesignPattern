@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /DesignPatternAsp/appsettings.json
 /DesignPatternAsp/appsettings.Development.json
+/DesignPatternAsp/log.txt
