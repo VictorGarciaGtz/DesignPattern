@@ -11,12 +11,21 @@
 //ISale internetSale = internetSaleFactory.GetSale();
 //internetSale.Sell(100);
 
+using DesignPattern.BuilderPattern;
 using DesignPattern.Models;
 using DesignPattern.RepositoryPattern;
 using DesignPattern.StrategyPattern;
 
-var context = new Context(new CarStrategy());
-context.Run();
+var builder = new PreparedAlcoholDrinkConcreteBuilder();
+var director = new BardmanDirector(builder);
+
+director.PrepareMargarita();
+var preparedDrink = builder.GetPreparedDrink();
+
+Console.WriteLine(preparedDrink.Result);
+
+//var context = new Context(new CarStrategy());
+//context.Run();
 
 //using (var context = new DesignPatternContext())
 //{
